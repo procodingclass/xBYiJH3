@@ -13,7 +13,8 @@ class Sling {
  
 
   display() {
-    if (this.sling.bodyB) {
+      // write code to check for null
+
       var posA = this.sling.pointA;
       var posB = this.sling.bodyB.position;
       push();
@@ -22,11 +23,12 @@ class Sling {
       line(posA.x - 5, posA.y, posB.x - 10, posB.y);
       line(posA.x + 5, posA.y, posB.x + 10, posB.y);
       pop();
-    }
+    
   }
 
   fly() {
-    this.sling.bodyB = null;
+    // write code to make the bodyB null
+
   }
 
   attach(pointA, body) {

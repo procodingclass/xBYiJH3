@@ -13,7 +13,7 @@ var points = [
   { x: 800, y: 180}
 ];
 
-coins = [
+stars = [
   { x: 650, y: 200 },
   { x: 700, y: 50 }
 ];
@@ -24,7 +24,7 @@ var bgPosY = 235;
 function preload(){
   bgImg = loadImage("assets/background.png");
   playerImg = loadImage("./assets/player1.png");
-  coinImg = loadImage("./assets/coins.png");
+  starImg = loadImage("./assets/star.png");
 }
 
 function setup() {
@@ -54,8 +54,8 @@ function draw() {
   sling.display();
   player.display();
   addPoints();
-  addCoins();
-  handleCoins();
+  addStars();
+  handleStars();
   for(var i=0; i< points.length; i++){
     drawPoints(i);
     
@@ -77,10 +77,10 @@ function drawPoints(i) {
   pop();
 }
 
-function drawCoins(i) {
+function drawStars(i) {
   push();
   imageMode(CENTER);
-  image(coinImg, coins[i].x, coins[i].y, 30, 30);
+  image(starImg, stars[i].x, stars[i].y, 30, 30);
   pop();
 }
 
@@ -96,9 +96,9 @@ function addPoints() {
   }
 }
 
-function addCoins(){
-  if (coins.length < 4) {
-    coins.push({
+function addStars(){
+  if (stars.length < 4) {
+    stars.push({
       x: random(800, 1300),
       y: random(50, 300)
     });
@@ -109,16 +109,15 @@ function handlePoints(i){
   if (points[i].x < 60) {
     points.shift();
   }
-  sling.attach(points[0], player.body);
 }
 
-function handleCoins() {
-  for (var i = 0; i < coins.length; i++) {
-     drawCoins(i);
-      coins[i].x -= 0.3;
+function handleStars() {
+  for (var i = 0; i < stars.length; i++) {
+     drawStars(i);
+     stars[i].x -= 0.3;
   
-    if (coins[i].x < 60) {
-        coins.shift();
+    if (stars[i].x < 60) {
+      stars.shift();
     }
   }  
 }
@@ -136,4 +135,11 @@ function resetBackground() {
     bgPosX = 425;
   }
 }
+
+// define function mouseReleased() here
+
+
+
+
+
 
